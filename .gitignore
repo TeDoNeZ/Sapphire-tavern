@@ -1,0 +1,21 @@
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+
+# Dependencies and generated output
+node_modules/
+artifacts/
+
+# Local/editor/system files
+.DS_Store
+Thumbs.db
+*.log
+
+# Runtime caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Local tooling metadata
+.dsh-acl-recovery/

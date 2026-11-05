@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#1b1410">
+  <title>Мастерская карт — Hearthstone Battlegrounds</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body class="desktop-mode">
+  <a class="skip-link" href="#main">К содержимому</a>
+
+  <div class="app">
+  <header class="app-header">
+    <div class="app-header__brand">
+      <h1 class="app-title">Мастерская карт</h1>
+      <span class="app-subtitle">Battlegrounds</span>
+    </div>
+
+    <nav class="app-nav" aria-label="Разделы">
+      <button type="button" class="app-nav__tab nav-btn is-active" data-view="gallery" aria-current="page">
+        <span class="app-nav__label">Галерея</span>
+        <span class="app-nav__count" id="nav-count-all">0</span>
+      </button>
+      <button type="button" class="app-nav__tab nav-btn" data-view="minion">
+        <span class="app-nav__label">Существо</span>
+      </button>
+      <button type="button" class="app-nav__tab nav-btn" data-view="spell">
+        <span class="app-nav__label">Заклинание</span>
+      </button>
+    </nav>
+    <div class="app-header__actions">
+      <label class="btn btn--ghost file-btn" for="import-input">
+        Загрузить JSON
+        <input type="file" id="import-input" accept=".json,application/json" class="visually-hidden">
+      </label>
+      <button type="button" class="btn btn--primary" id="export-btn">Скачать JSON</button>
+      <button type="button" class="btn btn--ghost" id="scan-images-btn" title="Выбрать папку Create Image и обновить список изображений">Обновить каталог</button>
+      <input type="file" id="scan-images-input" class="visually-hidden" webkitdirectory directory multiple accept="image/*">
+      <span class="catalog-status" id="catalog-status" role="status" aria-live="polite"></span>
+
+      <fieldset class="mode-toggle" aria-describedby="mode-status">
+        <legend class="visually-hidden">Режим интерфейса</legend>
+        <label class="mode-toggle__option">
+          <input type="radio" name="viewMode" value="auto">
+          <span>Авто</span>
+        </label>
+        <label class="mode-toggle__option">
+          <input type="radio" name="viewMode" value="desktop">
+          <span>ПК</span>
+        </label>
+        <label class="mode-toggle__option">
+          <input type="radio" name="viewMode" value="mobile">
+          <span>Мобильный</span>
+        </label>
+        <span class="mode-toggle__status" id="mode-status"></span>
+      </fieldset>
+    </div>
+  </header>
+
+  <main id="main" class="app-main">
+    <!-- ===================== ГАЛЕРЕЯ ===================== -->
+    <section class="view view--gallery is-active" id="view-gallery" data-view-panel="gallery" aria-labelledby="gallery-title">
+      <div class="view__head">
+        <h2 class="view__title" id="gallery-title">Все карты</h2>
+        <p class="view__meta" id="gallery-counter" aria-live="polite"></p>
+      </div>
+
+      <form class="filter-bar" id="filter-bar" role="search" aria-label="Фильтры галереи" onsubmit="return false">
+        <div class="filter-bar__field filter-group filter-bar__field--search">
+          <label for="filter-search">Поиск</label>
+          <input type="search" id="filter-search" name="search" placeholder="Название или описание" autocomplete="off">
+        </div>
+
+        <div class="filter-bar__field filter-group">
+          <label for="filter-type">Тип</label>
+          <select id="filter-type" name="type">
+            <option value="all">Все карты</option>
+            <option value="minion">Существа</option>
+            <option value="spell">Заклинания</option>
+          </select>
+        </div>
+
+        <div class="filter-bar__field filter-group">
+          <label for="filter-archetype">Архетип</label>
+          <select id="filter-archetype" name="archetype">
+            <option value="all">Любой</option>
+          </select>
+        </div>
+
+        <div class="filter-bar__field filter-group">
+          <label for="filter-status">Статус</label>
+          <select id="filter-status" name="status">
+            <option value="all">Все</option>
+            <option value="active">Включённые</option>
+            <option value="disabled">Выключенные</option>
+            <option value="token">Только токены</option>
+            <option value="nontoken">Без токенов</option>
+          </select>
+        </div>
+
+        <fieldset class="filter-bar__field filter-group filter-bar__tiers">
+          <legend>Таверна</legend>
+          <div class="tier-chips" id="filter-tiers" role="group" aria-label="Уровень таверны"></div>
+        </fieldset>
+
+        <button type="button" class="btn btn--ghost filter-bar__reset" id="filter-reset">Сбросить</button>
+      </form>
+
+      <div class="card-grid" id="gallery-grid" aria-live="polite"></div>
+
+      <div class="empty-state" id="gallery-empty" hidden>
+        <h3 class="empty-state__title" id="gallery-empty-title">Карт пока нет</h3>
+        <p class="empty-state__text" id="gallery-empty-text">Создайте первое существо или заклинание, либо загрузите сохранённый JSON-файл.</p>
+        <div class="empty-state__actions" id="gallery-empty-actions">
+          <button type="button" class="btn btn--primary" data-go="minion">Создать существо</button>
+          <button type="button" class="btn btn--ghost" data-go="spell">Создать заклинание</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== РЕДАКТОР СУЩЕСТВА ===================== -->
+    <section class="view view--editor" id="view-minion" data-view-panel="minion" aria-labelledby="minion-title" hidden>
+      <div class="view__head">
+        <h2 class="view__title" id="minion-title">Новое существо</h2>
+        <p class="view__meta editor-dirty" id="minion-dirty" hidden>Есть несохранённые изменения</p>
+      </div>
+
+      <div class="editor-layout">
+        <form class="editor-form" id="minion-form" novalidate autocomplete="off">
+          <div class="field">
+            <label for="minion-name">Название</label>
+            <input type="text" id="minion-name" name="cardName" maxlength="60" required aria-describedby="minion-name-error">
+            <p class="field-error" id="minion-name-error" hidden>Введите название карты</p>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="minion-archetype">Архетип</label>
+              <select id="minion-archetype" name="archetype"></select>
+            </div>
+          </div>
+
+          <fieldset class="field">
+            <legend>Таверна</legend>
+            <div class="tier-picker" data-tier-picker="minion" role="radiogroup" aria-label="Уровень таверны"></div>
+          </fieldset>
+
+          <div class="field-row field-row--stats">
+            <div class="field">
+              <label for="minion-attack">Атака</label>
+              <input type="number" id="minion-attack" name="attack" min="0" max="999" step="1" inputmode="numeric">
+            </div>
+            <div class="field">
+              <label for="minion-health">Здоровье</label>
+              <input type="number" id="minion-health" name="health" min="0" max="999" step="1" inputmode="numeric">
+            </div>
+          </div>
+
+          <fieldset class="field">
+            <legend>Свойства</legend>
+            <div class="keyword-list" id="minion-keywords"></div>
+          </fieldset>
+
+          <div class="field">
+            <label for="minion-description">Описание</label>
+            <textarea id="minion-description" name="description" rows="4" maxlength="400" placeholder="Боевой клич: ... Используйте **текст** для жирного шрифта."></textarea>
+          </div>
+
+          <fieldset class="field">
+            <legend>Статус</legend>
+            <div class="switch-list">
+              <label class="switch">
+                <input type="checkbox" name="isActive" id="minion-active">
+                <span class="switch__label">Включена в пул</span>
+              </label>
+              <label class="switch">
+                <input type="checkbox" name="isToken" id="minion-token">
+                <span class="switch__label">Токен</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <div class="field">
+            <span class="field__label" id="minion-image-label">Изображение</span>
+            <div class="image-field" aria-labelledby="minion-image-label">
+              <div class="image-field__thumb" id="minion-image-thumb"></div>
+              <div class="image-field__body">
+                <p class="image-field__path" id="minion-image-path">Не выбрано</p>
+                <div class="image-field__actions">
+                  <button type="button" class="btn btn--ghost" data-pick-image="minion">Выбрать изображение</button>
+                  <button type="button" class="btn btn--text" data-clear-image="minion">Убрать</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="editor-actions">
+            <button type="submit" class="btn btn--primary">Сохранить</button>
+            <button type="button" class="btn btn--ghost" data-editor-new="minion">Новое существо</button>
+            <button type="button" class="btn btn--ghost" data-editor-duplicate="minion">Дублировать</button>
+            <button type="button" class="btn btn--danger" data-editor-delete="minion">Удалить</button>
+          </div>
+        </form>
+
+        <aside class="editor-preview" aria-label="Предпросмотр существа">
+          <div class="editor-preview__stage" id="minion-preview"></div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ===================== РЕДАКТОР ЗАКЛИНАНИЯ ===================== -->
+    <section class="view view--editor" id="view-spell" data-view-panel="spell" aria-labelledby="spell-title" hidden>
+      <div class="view__head">
+        <h2 class="view__title" id="spell-title">Новое заклинание</h2>
+        <p class="view__meta editor-dirty" id="spell-dirty" hidden>Есть несохранённые изменения</p>
+      </div>
+
+      <div class="editor-layout">
+        <form class="editor-form" id="spell-form" novalidate autocomplete="off">
+          <div class="field">
+            <label for="spell-name">Название</label>
+            <input type="text" id="spell-name" name="cardName" maxlength="60" required aria-describedby="spell-name-error">
+            <p class="field-error" id="spell-name-error" hidden>Введите название карты</p>
+          </div>
+
+          <fieldset class="field">
+            <legend>Таверна</legend>
+            <div class="tier-picker" data-tier-picker="spell" role="radiogroup" aria-label="Уровень таверны"></div>
+          </fieldset>
+
+          <div class="field-row field-row--stats">
+            <div class="field">
+              <label for="spell-cost">Стоимость</label>
+              <input type="number" id="spell-cost" name="cost" min="0" max="99" step="1" inputmode="numeric">
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="spell-description">Описание</label>
+            <textarea id="spell-description" name="description" rows="4" maxlength="400" placeholder="Дайте существу +2/+2. Используйте **текст** для жирного шрифта."></textarea>
+          </div>
+
+          <fieldset class="field">
+            <legend>Статус</legend>
+            <div class="switch-list">
+              <label class="switch">
+                <input type="checkbox" name="isActive" id="spell-active">
+                <span class="switch__label">Включена в пул</span>
+              </label>
+              <label class="switch">
+                <input type="checkbox" name="isToken" id="spell-token">
+                <span class="switch__label">Токен</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <div class="field">
+            <span class="field__label" id="spell-image-label">Изображение</span>
+            <div class="image-field" aria-labelledby="spell-image-label">
+              <div class="image-field__thumb" id="spell-image-thumb"></div>
+              <div class="image-field__body">
+                <p class="image-field__path" id="spell-image-path">Не выбрано</p>
+                <div class="image-field__actions">
+                  <button type="button" class="btn btn--ghost" data-pick-image="spell">Выбрать изображение</button>
+                  <button type="button" class="btn btn--text" data-clear-image="spell">Убрать</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="editor-actions">
+            <button type="submit" class="btn btn--primary">Сохранить</button>
+            <button type="button" class="btn btn--ghost" data-editor-new="spell">Новое заклинание</button>
+            <button type="button" class="btn btn--ghost" data-editor-duplicate="spell">Дублировать</button>
+            <button type="button" class="btn btn--danger" data-editor-delete="spell">Удалить</button>
+          </div>
+        </form>
+
+        <aside class="editor-preview" aria-label="Предпросмотр заклинания">
+          <div class="editor-preview__stage" id="spell-preview"></div>
+        </aside>
+      </div>
+    </section>
+  </main>
+  </div>
+
+  <!-- ===================== ВЫБОР ИЗОБРАЖЕНИЯ ===================== -->
+  <div class="image-picker-modal" id="image-picker" hidden>
+    <div class="image-picker-modal__backdrop" data-picker-close></div>
+    <div class="image-picker-modal__dialog image-picker__dialog" role="dialog" aria-modal="true" aria-labelledby="picker-title">
+      <header class="image-picker-modal__head">
+        <h2 class="image-picker-modal__title" id="picker-title">Выбор изображения</h2>
+        <button type="button" class="btn btn--icon image-picker-modal__close" data-picker-close aria-label="Закрыть">×</button>
+      </header>
+
+      <div class="image-picker-modal__body">
+        <nav class="image-picker-modal__folders" aria-label="Папки">
+          <div class="folder-list image-picker__folders" id="picker-folders"></div>
+        </nav>
+
+        <div class="image-picker-modal__browser">
+          <div class="image-picker-modal__toolbar">
+            <label for="picker-search" class="visually-hidden">Поиск по имени файла</label>
+            <input type="search" id="picker-search" placeholder="Поиск по имени файла" autocomplete="off">
+            <span class="image-picker-modal__count" id="picker-count" aria-live="polite"></span>
+          </div>
+          <div class="image-grid" id="picker-grid" role="listbox" aria-label="Изображения"></div>
+          <p class="empty-state__text" id="picker-empty" hidden>В этой папке нет подходящих изображений.</p>
+        </div>
+
+        <aside class="image-picker-modal__preview image-picker__preview" aria-label="Предпросмотр карты">
+          <div class="image-picker-modal__preview-stage" id="picker-preview"></div>
+          <p class="image-picker-modal__path" id="picker-path">Изображение не выбрано</p>
+        </aside>
+      </div>
+
+      <footer class="image-picker-modal__foot">
+        <button type="button" class="btn btn--text" id="picker-none">Без изображения</button>
+        <div class="image-picker-modal__foot-actions">
+          <button type="button" class="btn btn--ghost" data-picker-close>Отмена</button>
+          <button type="button" class="btn btn--primary" id="picker-apply">Применить</button>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+  <script src="assets/catalog.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+</html>

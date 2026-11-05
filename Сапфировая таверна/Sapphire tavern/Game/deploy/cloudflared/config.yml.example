@@ -1,0 +1,11 @@
+# Rename/copy to /etc/cloudflared/config.yml.
+# Replace values before starting the cloudflared systemd service.
+tunnel: <TUNNEL-ID>
+credentials-file: /etc/cloudflared/<TUNNEL-ID>.json
+
+ingress:
+  - hostname: miniapp.example.com
+    service: http://127.0.0.1:8080
+    originRequest:
+      httpHostHeader: miniapp.example.com
+  - service: http_status:404

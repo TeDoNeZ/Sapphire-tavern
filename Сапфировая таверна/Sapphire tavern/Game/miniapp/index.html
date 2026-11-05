@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#101723">
+  <title>Сапфировая таверна — карты</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://telegram.org/js/telegram-web-app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <div><span class="eyebrow">АРХИВ СУЩЕСТВ</span><h1>Сапфировая таверна</h1></div>
+    <button id="newBtn" class="primary" type="button">＋ Новая</button>
+  </header>
+  <main>
+    <section class="toolbar"><input id="search" type="search" placeholder="Поиск карты…" aria-label="Поиск"><select id="filter" aria-label="Фильтр"><option value="all">Все типы</option></select></section>
+    <div id="status" class="status" role="status"></div>
+    <section class="split">
+      <aside id="cardList" class="card-list" aria-label="Список карт"></aside>
+      <form id="form" class="editor" novalidate>
+        <div class="editor-head"><h2 id="formTitle">Параметры карты</h2><button id="deleteBtn" class="danger ghost" type="button">Удалить</button></div>
+        <div class="field"><label for="name">Название</label><input id="name" required maxlength="120" placeholder="Например, Лунный бард"></div>
+        <div class="grid2"><div class="field"><label for="archetype">Тип существа</label><select id="archetype"></select></div><div class="field"><label for="tier">Тир таверны</label><select id="tier"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select></div></div>
+        <div class="grid2"><div class="field"><label for="attack">Атака</label><input id="attack" type="number" min="0" max="999"></div><div class="field"><label for="health">Здоровье</label><input id="health" type="number" min="1" max="999"></div></div>
+        <div class="field"><label for="text">Способность</label><textarea id="text" rows="4" maxlength="1000" placeholder="Текст способности"></textarea></div>
+        <div class="field"><label for="keywords">Ключевые слова</label><input id="keywords" placeholder="Провокация, Яд"></div>
+        <div class="field"><label for="asset">Изображение или URL</label><input id="asset" placeholder="/images/cards/alpha_wolf.png"></div>
+        <div class="actions"><button class="primary" type="submit">Сохранить карту</button><button id="duplicateBtn" class="ghost" type="button">Дублировать</button></div>
+      </form>
+      <section class="preview-wrap"><span class="eyebrow">ПРЕДПРОСМОТР</span><article id="preview" class="card-preview"></article></section>
+    </section>
+  </main>
+  <template id="empty"><p class="empty">Карт пока нет. Создайте первую.</p></template>
+  <script src="app.js" defer></script>
+</body>
+</html>

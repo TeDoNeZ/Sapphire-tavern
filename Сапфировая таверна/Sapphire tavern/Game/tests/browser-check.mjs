@@ -1,0 +1,50 @@
+import {chromium} from '@playwright/test';
+import assert from 'node:assert/strict';
+import {cards,isTribe} from '../src/cards.js';
+import {mkdir} from 'node:fs/promises';
+const browser=await chromium.launch({headless:true,args:['--no-sandbox','--disable-dev-shm-usage','--disable-gpu','--disable-gpu-compositing','--disable-software-rasterizer']});
+const errors=[];
+await mkdir('artifacts/browser',{recursive:true});
+try{
+ for(const viewport of [{width:390,height:844},{width:844,height:390}]){
+  const context=await browser.newContext({viewport,hasTouch:true,isMobile:true});
+  const page=await context.newPage();
+  page.on('pageerror',e=>errors.push(e.message));
+  page.on('response',r=>{if(r.status()>=400)errors.push(`${r.status()} ${r.url()}`);});
+  await page.goto('http://127.0.0.1:4173',{waitUntil:'networkidle'});
+  assert.equal(await page.locator('#shop .card').count(),3);
+  assert.equal(await page.locator('#board .empty-slot').count(),8);
+  const before=await page.locator('#gold').textContent();assert.equal(before,'3');
+  await page.locator('#shop .card').first().click();
+  await page.locator('[data-action="buy"]').click();
+  assert.equal(await page.locator('#hand .card').count(),1);
+  assert.equal(await page.locator('#gold').textContent(),'0');
+  await page.locator('#hand .card').first().click();
+  await page.locator('[data-action="play"]').click();
+  assert.ok(await page.locator('#board .card').count()>=1);
+  assert.equal(await page.locator('#hand .card').count(),0);
+  const armyBefore=await page.locator('#board .card').count();
+  await page.reload({waitUntil:'networkidle'});
+  assert.equal(await page.locator('#board .card').count(),armyBefore);
+  assert.equal(await page.locator('#gold').textContent(),'0');
+  await page.locator('#freeze').click();
+  assert.equal(await page.locator('#freeze').textContent(),'Разморозить');
+  await page.locator('#battle').click();
+  if(await page.locator('#skip').isVisible())await page.locator('#skip').click();
+  await page.waitForFunction(()=>document.querySelector('#round').textContent==='2');
+  assert.equal(await page.locator('#gold').textContent(),'4');
+  await page.locator('#collection').click();
+  assert.equal(await page.locator('.atlas-entry').count(),cards.length);
+  await page.locator('[data-tribe="mech"]').click();
+  assert.equal(await page.locator('.atlas-entry').count(),cards.filter(c=>isTribe(c,'mech')).length);
+  await page.locator('#modal-close').click();
+  const overflow=await page.evaluate(()=>document.documentElement.scrollWidth>window.innerWidth+2);
+  assert.equal(overflow,false,'Нет горизонтального переполнения страницы');
+  const images=await page.locator('img').evaluateAll(imgs=>imgs.filter(i=>!i.complete||!i.naturalWidth).map(i=>i.src));
+  assert.deepEqual(images,[],'Все изображения загружены');
+  await page.screenshot({path:`artifacts/browser/mobile-${viewport.width}.png`,fullPage:true});
+  console.log(`PASS: ${viewport.width}×${viewport.height}, покупка, розыгрыш, сохранение, бой, коллекция, изображения`);
+  await context.close();
+ }
+ assert.deepEqual(errors,[],'Нет ошибок браузера и HTTP');
+}finally{await browser.close();}

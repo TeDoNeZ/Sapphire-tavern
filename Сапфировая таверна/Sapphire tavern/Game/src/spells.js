@@ -1,0 +1,31 @@
+// Заклинания, перенесённые из проекта «Поле Осколков».
+export const SPELL_TABLE = {
+ s1_buff_single:{tier:1,name:'Искра силы',cost:1,type:'buff',target:'single',atk:2,hp:1,weight:10,text:'Даёт существу +2/+1.'},
+ s1_buff_all:{tier:1,name:'Зов стаи',cost:2,type:'buff',target:'all',atk:1,hp:1,weight:6,text:'Даёт всем вашим существам +1/+1.'},
+ s1_gold:{tier:1,name:'Медный грош',cost:1,type:'gold',target:'global',amount:1,weight:4,text:'Даёт +1 золота.'},
+ s1_taunt:{tier:1,name:'Зов защитника',cost:1,type:'grant_keyword',target:'single',keyword:'taunt',weight:5,text:'Даёт существу Провокацию.'},
+ s1_shield:{tier:1,name:'Чешуя дракона',cost:1,type:'grant_keyword',target:'single',keyword:'shield',weight:4,text:'Даёт существу Божественный щит.'},
+ s2_buff_single:{tier:2,name:'Малый вихрь',cost:1,type:'buff',target:'single',atk:1,hp:2,weight:9,text:'Даёт существу +1/+2.'},
+ s_free_reroll:{tier:2,name:'Свобода выбора',cost:1,type:'free_reroll',target:'global',weight:5,text:'Бесплатно обновляет лавку.'},
+ s_otsrochka:{tier:2,name:'Отсрочка',cost:1,type:'deferred_gold',target:'global',now:1,later:2,weight:4,text:'Сейчас +1 золота. В следующем раунде +2 золота.'},
+ s2_dup_base:{tier:2,name:'Отголосок',cost:2,type:'duplicate_base',target:'single',weight:3,text:'Кладёт в руку базовую копию существа.'},
+ s2_windfury:{tier:2,name:'Танец клинков',cost:2,type:'grant_keyword',target:'single',keyword:'windfury',weight:3,text:'Даёт существу Неистовые ветра.'},
+ s3_buff_single:{tier:3,name:'Двойной удар',cost:2,type:'buff',target:'single',atk:4,hp:2,weight:9,text:'Даёт существу +4/+2.'},
+ s3_gold:{tier:3,name:'Серебряный грош',cost:2,type:'gold',target:'global',amount:2,weight:5,text:'Даёт +2 золота.'},
+ s_pechat:{tier:3,name:'Печать щита',cost:2,type:'buff_and_keyword',target:'single',atk:0,hp:5,keyword:'taunt',weight:4,text:'Даёт существу +0/+5 и Провокацию.'},
+ s_windfury:{tier:3,name:'Двойник ярости',cost:2,type:'grant_keyword',target:'single',keyword:'windfury',weight:4,text:'Даёт существу Неистовые ветра.'},
+ s_roulette:{tier:3,name:'Рулетка',cost:2,type:'random_buff',target:'global',atk:4,hp:4,weight:3,text:'Даёт +4/+4 случайному существу.'},
+ s3_maxgold:{tier:3,name:'Чаша изобилия',cost:2,type:'maxgold',target:'global',weight:2,text:'Увеличивает максимум золота за раунд на 1.'},
+ s4_buff_all:{tier:4,name:'Знамя войны',cost:2,type:'buff',target:'all',atk:3,hp:2,weight:7,text:'Даёт всем существам +3/+2.'},
+ s_obryad:{tier:4,name:'Обряд',cost:3,type:'sacrifice',target:'single',weight:2,text:'Уничтожает существо и передаёт его статы соседям.'},
+ s4_double:{tier:4,name:'Двойник',cost:3,type:'double',target:'single',weight:3,text:'Копия существа со статами и баффами.'},
+ s5_buff_single:{tier:5,name:'Гнев титанов',cost:2,type:'buff',target:'single',atk:6,hp:4,weight:7,text:'Даёт существу +6/+4.'},
+ s_stealth:{tier:5,name:'Маскировка',cost:3,type:'grant_keyword',target:'single',keyword:'stealth',weight:2,text:'Даёт существу Маскировку.'},
+ s5_gold:{tier:5,name:'Золотой грош',cost:3,type:'gold',target:'global',amount:3,weight:4,text:'Даёт +3 золота.'},
+ s5_absorb:{tier:5,name:'Поглощение',cost:3,type:'absorb',target:'single',weight:1,text:'Уничтожает существо и отдаёт его статы случайному другому.'},
+ s6_buff_all:{tier:6,name:'Суд богов',cost:3,type:'buff',target:'all',atk:6,hp:4,weight:6,text:'Даёт всем существам +6/+4.'},
+ s6_goldify:{tier:6,name:'Озолотение',cost:3,type:'goldify',target:'single',weight:1,text:'Превращает обычное существо в золотое.'},
+ s6_dup_eternal:{tier:6,name:'Вечность',cost:3,type:'duplicate_eternal',target:'single',weight:1,text:'Копия существа с сохранением статов и баффов.'},
+};
+export const spellById = Object.fromEntries(Object.entries(SPELL_TABLE).map(([id,spell])=>[id,{id,kind:'spell',...spell}]));
+export function spellTiers(tier){return Array.from({length:tier},(_,i)=>i+1);}

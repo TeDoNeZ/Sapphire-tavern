@@ -1,0 +1,63 @@
+# Copy to /etc/nginx/sites-available/sapphire-tavern and replace example values.
+upstream sapphire_tavern_backend {
+    server 127.0.0.1:8080;
+    keepalive 32;
+}
+
+server {
+    listen 80;
+    listen [::]:80;
+    server_name miniapp.example.com;
+
+    # Use this block only during ACME/bootstrap; redirect to HTTPS afterwards.
+    location /.well-known/acme-challenge/ { root /var/www/acme; }
+    location / { return 301 https://$host$request_uri; }
+}
+
+server {
+    listen 443 ssl http2;
+    listen [::]:443 ssl http2;
+    server_name miniapp.example.com;
+
+    ssl_certificate     /etc/letsencrypt/live/miniapp.example.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/miniapp.example.com/privkey.pem;
+    include /etc/letsencrypt/options-ssl-nginx.conf;
+
+    client_max_body_size 10m;
+
+    location / {
+        proxy_pass http://sapphire_tavern_backend;
+        proxy_http_version 1.1;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+        proxy_read_timeout 120s;
+    }
+
+    # Keep webhook/API paths explicit for review and longer-lived requests.
+    location /api/ {
+        proxy_pass http://sapphire_tavern_backend;
+        proxy_http_version 1.1;
+        proxy_set_header Host $host;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_read_timeout 120s;
+    }
+
+    location /webhook/ {
+        proxy_pass http://sapphire_tavern_backend;
+        proxy_http_version 1.1;
+        proxy_set_header Host $host;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_read_timeout 120s;
+    }
+
+    location = /health {
+        proxy_pass http://sapphire_tavern_backend;
+        access_log off;
+    }
+}

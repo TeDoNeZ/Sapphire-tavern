@@ -1,0 +1,13 @@
+import fs from 'node:fs';
+import path from 'node:path';
+const root=path.resolve('HS v2');
+const cardsPath=path.join(root,'src','cards.js');
+let src=fs.readFileSync(cardsPath,'utf8');
+const old=JSON.parse(fs.readFileSync(path.join(root,'archive','legacy-cards','Существа.json'),'utf8')).cards;
+const compat=old.map(c=>({...c, effect:c.effect||c.id, removed:true, compatibility:true}));
+const marker='export const cardById = Object.fromEntries([...cards, ...tokens].map(c => [c.id, c]));';
+const block=`export const legacyCards = ${JSON.stringify(compat,null,2)};\n\n`;
+if(src.includes('export const legacyCards')) src=src.replace(/export const legacyCards = [\s\S]*?export const cardById = Object\.fromEntries/, block+'export const cardById = Object.fromEntries');
+else src=src.replace(marker,block+'export const cardById = Object.fromEntries([...cards, ...legacyCards, ...tokens].map(c => [c.id, c]));');
+fs.writeFileSync(cardsPath,src,'utf8');
+console.log(`Added ${compat.length} hidden compatibility cards`);

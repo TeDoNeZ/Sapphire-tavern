@@ -1,0 +1,26 @@
+[Unit]
+Description=Sapphire Tavern Telegram Mini App (aiohttp + aiogram)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=sapphire
+Group=sapphire
+WorkingDirectory=/opt/sapphire-tavern
+EnvironmentFile=/opt/sapphire-tavern/.env
+Environment=PYTHONUNBUFFERED=1
+# Replace main.py and arguments with the actual aiohttp/aiogram entry point.
+ExecStart=/opt/sapphire-tavern/.venv/bin/python -m main
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=30
+KillSignal=SIGINT
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=full
+ProtectHome=true
+ReadWritePaths=/opt/sapphire-tavern
+
+[Install]
+WantedBy=multi-user.target

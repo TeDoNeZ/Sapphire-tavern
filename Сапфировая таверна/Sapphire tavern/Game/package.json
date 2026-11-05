@@ -1,0 +1,18 @@
+{
+  "name": "sapphire-tavern",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test tests/*.test.js",
+    "assets": "node tools/generate-assets.js",
+    "test:browser": "node tests/browser-check.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.64.1"
+  }
+}

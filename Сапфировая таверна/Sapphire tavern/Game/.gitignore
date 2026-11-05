@@ -1,0 +1,12 @@
+# Dependencies and generated browser output
+node_modules/
+artifacts/
+
+# Archived and review-only materials
+fresh/
+project-source-dump.txt
+
+# Local/editor/system files
+.DS_Store
+Thumbs.db
+.env

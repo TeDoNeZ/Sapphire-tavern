@@ -1,0 +1,454 @@
+[
+  {
+    "from": "app.js",
+    "to": "src/app.js",
+    "archived": false,
+    "kind": "file",
+    "sha256_before": "1a3ff5d6e6b0b13ecffa6978ba3afda0b7f2141d99b1ea7bea1c25b05b3054da",
+    "sha256_after": "1a3ff5d6e6b0b13ecffa6978ba3afda0b7f2141d99b1ea7bea1c25b05b3054da"
+  },
+  {
+    "from": "cards.js",
+    "to": "src/cards.js",
+    "archived": false,
+    "kind": "file",
+    "sha256_before": "3c031aa927503fe5ac49d69d99e465aa335bf113133cd439f184aa289be1501c",
+    "sha256_after": "3c031aa927503fe5ac49d69d99e465aa335bf113133cd439f184aa289be1501c"
+  },
+  {
+    "from": "combat.js",
+    "to": "src/combat.js",
+    "archived": false,
+    "kind": "file",
+    "sha256_before": "9febcaa78f7365e4a637d471d048252abb4ddc1a9b7fc3c7390ed34a25259a87",
+    "sha256_after": "9febcaa78f7365e4a637d471d048252abb4ddc1a9b7fc3c7390ed34a25259a87"
+  },
+  {
+    "from": "game.js",
+    "to": "src/game.js",
+    "archived": false,
+    "kind": "file",
+    "sha256_before": "e1dd89c51359097ee3e011b3e1316a6892a151b05e366a9e1b82725aca9a4a06",
+    "sha256_after": "e1dd89c51359097ee3e011b3e1316a6892a151b05e366a9e1b82725aca9a4a06"
+  },
+  {
+    "from": "journal.js",
+    "to": "src/journal.js",
+    "archived": false,
+    "kind": "file",
+    "sha256_before": "d16862dbe43288812bab3c85729c25f1898e56b456602996fbcae1b726be3fad",
+    "sha256_after": "d16862dbe43288812bab3c85729c25f1898e56b456602996fbcae1b726be3fad"
+  },
+  {
+    "from": "spell-effects.js",
+    "to": "src/spell-effects.js",
+    "archived": false,
+    "kind": "file",
+    "sha256_before": "a197562ef92efcd7089a706f9ffc285e089117e4122efc0ebcad8ad02b30fca7",
+    "sha256_after": "a197562ef92efcd7089a706f9ffc285e089117e4122efc0ebcad8ad02b30fca7"
+  },
+  {
+    "from": "spells.js",
+    "to": "src/spells.js",
+    "archived": false,
+    "kind": "file",
+    "sha256_before": "643f2699f4e673f6e65e38adf5d2015aaa5b5fff5ca34ad0b18fcf858b5603d6",
+    "sha256_after": "643f2699f4e673f6e65e38adf5d2015aaa5b5fff5ca34ad0b18fcf858b5603d6"
+  },
+  {
+    "from": "combat.test.js",
+    "to": "tests/combat.test.js",
+    "archived": false,
+    "kind": "file",
+    "sha256_before": "fc46931c052224d75e6aabe1e155e5f5d7036f78d4206c106db8826d7d2a6a24",
+    "sha256_after": "c15490a2d30ff5b45e493efafc2a02ee1c114288b674165e5b6e9dc07787c821"
+  },
+  {
+    "from": "dual-tribe.test.js",
+    "to": "tests/dual-tribe.test.js",
+    "archived": false,
+    "kind": "file",
+    "sha256_before": "9ba3cabf393eb5b49a52a7a5d9bcb29c014e00e86d4b657e3f79e81b3b0ec414",
+    "sha256_after": "dadcc4a40cdacd64d5aae0d8b1a1c51ee81c0d0a0401dbeedc3f5d78d969cbe1"
+  },
+  {
+    "from": "economy.test.js",
+    "to": "tests/economy.test.js",
+    "archived": false,
+    "kind": "file",
+    "sha256_before": "ab7d8899363bad985be6f7085e2f632d7f0b7985a881af9737108725f4554a68",
+    "sha256_after": "dcc6942526acbd4963df7297a911c7f83b8454e8ec9f586422dcc6737866158e"
+  },
+  {
+    "from": "journal.test.js",
+    "to": "tests/journal.test.js",
+    "archived": false,
+    "kind": "file",
+    "sha256_before": "9b929b5be3ef3b2f76ffdf969362d106661dce05af7d827fa98fa0548cf2714d",
+    "sha256_after": "ca3e462d2ed44187ed87430145aa1dff0ae4aaeb1ce30bc5f976ced9b672fef4"
+  },
+  {
+    "from": "spells.test.js",
+    "to": "tests/spells.test.js",
+    "archived": false,
+    "kind": "file",
+    "sha256_before": "08a35edd28e20bd13c35031c209d5ed569e44468b8c995a7f1324534b91cf8a4",
+    "sha256_after": "b7278f0c16ea36b5152095024c7c2e47d6ad51e7a64509efeef626c51057c67c"
+  },
+  {
+    "from": "styles.css",
+    "to": "styles/styles.css",
+    "archived": false,
+    "kind": "file",
+    "sha256_before": "8e70002c377d541adb6b721199291e0fc85c4bf4dd178b8fa2aaaa02d6cc39da",
+    "sha256_after": "5afd3dc20578806c518fc9b6a13bbd8e76ea327969a307f46086440f6d013f65"
+  },
+  {
+    "from": "browser-check.mjs",
+    "to": "tests/browser-check.mjs",
+    "archived": false,
+    "kind": "file",
+    "sha256_before": "428def6ede620022a76082599fd864ce88e338a11bbc14ff154e0b0cd9e45242",
+    "sha256_after": "d414c1c1ca21f8f065eac63392fe02874de17ee5ba14a2265c7a9f0f6ec0aa85"
+  },
+  {
+    "from": "generate-assets.js",
+    "to": "tools/generate-assets.js",
+    "archived": false,
+    "kind": "file",
+    "sha256_before": "5f9c80400b771bada3c3a55e41a4e99fb3e3dfeb0ab541a865061b8210c1232d",
+    "sha256_after": "8fa1396221e26e65f646fac6c741c9f9e169084ab25f8db4ceaf250f04cf9597"
+  },
+  {
+    "from": "Описание игры",
+    "to": "docs/reference/Описание игры.txt",
+    "archived": false,
+    "kind": "file",
+    "sha256_before": "c014cc60f61b4e94ca2258a87ec7d978c192fe42a4194a6f536d27c92b51a89c",
+    "sha256_after": "c014cc60f61b4e94ca2258a87ec7d978c192fe42a4194a6f536d27c92b51a89c"
+  },
+  {
+    "from": "ASSETS.md",
+    "to": "fresh/docs/ASSETS.md",
+    "archived": true,
+    "kind": "file",
+    "sha256_before": "ec412d5d6fae8c2947970ec57f717d02807e76470e2cd689afbe2cb24492990a",
+    "sha256_after": "ec412d5d6fae8c2947970ec57f717d02807e76470e2cd689afbe2cb24492990a"
+  },
+  {
+    "from": "НАЗВАНИЯ_СУЩЕСТВ.txt",
+    "to": "fresh/docs/НАЗВАНИЯ_СУЩЕСТВ.txt",
+    "archived": true,
+    "kind": "file",
+    "sha256_before": "b6336a23b0532eb4e1db23ce397851bf8b7751b9eb444e19655ff7b29010ac0f",
+    "sha256_after": "b6336a23b0532eb4e1db23ce397851bf8b7751b9eb444e19655ff7b29010ac0f"
+  },
+  {
+    "from": "Описание интерфейса",
+    "to": "fresh/docs/Описание интерфейса",
+    "archived": true,
+    "kind": "file",
+    "sha256_before": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256_after": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "from": "file_0000000067dc824687cf117b802dcd24.png",
+    "to": "fresh/reference/file_0000000067dc824687cf117b802dcd24.png",
+    "archived": true,
+    "kind": "file",
+    "sha256_before": "bc1d8c3b048cd0e15e9853261d5214de6fbed00498dcb2b8932a69cec86c14be",
+    "sha256_after": "bc1d8c3b048cd0e15e9853261d5214de6fbed00498dcb2b8932a69cec86c14be"
+  },
+  {
+    "from": "file_0000000072dc8246896a5d3a6394dfb6.png",
+    "to": "fresh/reference/file_0000000072dc8246896a5d3a6394dfb6.png",
+    "archived": true,
+    "kind": "file",
+    "sha256_before": "32cf16ed858de23b5b3462f219719669da9e9a36bd862e27c72b149b63f4951b",
+    "sha256_after": "32cf16ed858de23b5b3462f219719669da9e9a36bd862e27c72b149b63f4951b"
+  },
+  {
+    "from": "assets/icon_attack.png",
+    "to": "fresh/assets/icon_attack.png",
+    "archived": true,
+    "kind": "file",
+    "sha256_before": "fa5c4f54a28cf0496923c15485cc9b3c6c783a239cd00c2b95197ba6d7eb0f5f",
+    "sha256_after": "fa5c4f54a28cf0496923c15485cc9b3c6c783a239cd00c2b95197ba6d7eb0f5f"
+  },
+  {
+    "from": "assets/icon_health.png",
+    "to": "fresh/assets/icon_health.png",
+    "archived": true,
+    "kind": "file",
+    "sha256_before": "0a8568ff88df06259a0392ce5f821cf5e8db800a57c8c0bae062706a3a237028",
+    "sha256_after": "0a8568ff88df06259a0392ce5f821cf5e8db800a57c8c0bae062706a3a237028"
+  },
+  {
+    "from": "assets/ui/5393/images/attack.png",
+    "to": "assets/ui/attack.png",
+    "archived": false,
+    "kind": "file",
+    "sha256_before": "8ff46d5df192c6bf5748b0d1574cf57484830624396a71c9a26b7ccb23670463",
+    "sha256_after": "8ff46d5df192c6bf5748b0d1574cf57484830624396a71c9a26b7ccb23670463"
+  },
+  {
+    "from": "assets/ui/5393/images/health.png",
+    "to": "assets/ui/health.png",
+    "archived": false,
+    "kind": "file",
+    "sha256_before": "62464f2d3f902a8845c8856c84828d20963a216238be6864144d53dbad844ccc",
+    "sha256_after": "62464f2d3f902a8845c8856c84828d20963a216238be6864144d53dbad844ccc"
+  },
+  {
+    "from": "assets/ui/5393",
+    "to": "fresh/assets/ui/5393",
+    "archived": true,
+    "kind": "directory"
+  },
+  {
+    "from": "test-results",
+    "to": "fresh/test-results",
+    "archived": true,
+    "kind": "directory"
+  },
+  {
+    "from": "assets/cards/u01.svg",
+    "to": "fresh/assets/cards/u01.svg",
+    "archived": true,
+    "kind": "file",
+    "sha256_before": "d4dd8e8ba812c8b9ddc184a7629387ee50b78c006d15d773bcab3e55079d05b5",
+    "sha256_after": "d4dd8e8ba812c8b9ddc184a7629387ee50b78c006d15d773bcab3e55079d05b5"
+  },
+  {
+    "from": "assets/cards/u02.svg",
+    "to": "fresh/assets/cards/u02.svg",
+    "archived": true,
+    "kind": "file",
+    "sha256_before": "ff2c7be7be8893d0d5ca82d74bf34681d290e6bbee64905c61df3812cbb3a0bb",
+    "sha256_after": "ff2c7be7be8893d0d5ca82d74bf34681d290e6bbee64905c61df3812cbb3a0bb"
+  },
+  {
+    "from": "assets/cards/u03.svg",
+    "to": "fresh/assets/cards/u03.svg",
+    "archived": true,
+    "kind": "file",
+    "sha256_before": "cdf3b80460256f1290c85b7da87631fbb83222c1fd9c980d2cd3dab6c5baf4d9",
+    "sha256_after": "cdf3b80460256f1290c85b7da87631fbb83222c1fd9c980d2cd3dab6c5baf4d9"
+  },
+  {
+    "from": "assets/cards/u04.svg",
+    "to": "fresh/assets/cards/u04.svg",
+    "archived": true,
+    "kind": "file",
+    "sha256_before": "131c95df1b0f6f2aa6b9eaf41066d8538ea586677bd6870babb799e784e5da47",
+    "sha256_after": "131c95df1b0f6f2aa6b9eaf41066d8538ea586677bd6870babb799e784e5da47"
+  },
+  {
+    "from": "assets/cards/u05.svg",
+    "to": "fresh/assets/cards/u05.svg",
+    "archived": true,
+    "kind": "file",
+    "sha256_before": "d3b38d729b8056f0ba4462ea8c4f89f99fd67a266752b7eb01f1a8d0ff618dca",
+    "sha256_after": "d3b38d729b8056f0ba4462ea8c4f89f99fd67a266752b7eb01f1a8d0ff618dca"
+  },
+  {
+    "from": "assets/cards/u06.svg",
+    "to": "fresh/assets/cards/u06.svg",
+    "archived": true,
+    "kind": "file",
+    "sha256_before": "3210b4568c98fe02a2021f3507912627629df904a043f4b2f9d1478d0afac0a3",
+    "sha256_after": "3210b4568c98fe02a2021f3507912627629df904a043f4b2f9d1478d0afac0a3"
+  },
+  {
+    "from": "assets/cards/u07.svg",
+    "to": "fresh/assets/cards/u07.svg",
+    "archived": true,
+    "kind": "file",
+    "sha256_before": "bd3e0ea0853b6602273c5883420f60b68765bd0d5e07c839497c8070a79f1698",
+    "sha256_after": "bd3e0ea0853b6602273c5883420f60b68765bd0d5e07c839497c8070a79f1698"
+  },
+  {
+    "from": "assets/cards/u08.svg",
+    "to": "fresh/assets/cards/u08.svg",
+    "archived": true,
+    "kind": "file",
+    "sha256_before": "b399e483e9056956b03c4a2b43a5bc978dcf2e829d107557052aa7bad3a1b515",
+    "sha256_after": "b399e483e9056956b03c4a2b43a5bc978dcf2e829d107557052aa7bad3a1b515"
+  },
+  {
+    "from": "assets/cards/u09.svg",
+    "to": "fresh/assets/cards/u09.svg",
+    "archived": true,
+    "kind": "file",
+    "sha256_before": "52d40aafdb7bcd44c3ca15a7a2354ca8e217f7d0e32c20963aed7eb314f6895f",
+    "sha256_after": "52d40aafdb7bcd44c3ca15a7a2354ca8e217f7d0e32c20963aed7eb314f6895f"
+  },
+  {
+    "from": "assets/cards/u10.svg",
+    "to": "fresh/assets/cards/u10.svg",
+    "archived": true,
+    "kind": "file",
+    "sha256_before": "e805be4b690d77c9255a71be070d47c1f92d73fb8d1f997b497072fe870806af",
+    "sha256_after": "e805be4b690d77c9255a71be070d47c1f92d73fb8d1f997b497072fe870806af"
+  },
+  {
+    "from": "assets/cards/u11.svg",
+    "to": "fresh/assets/cards/u11.svg",
+    "archived": true,
+    "kind": "file",
+    "sha256_before": "2529344ec5e614a7b1925d495d6c0635df45e3a432ed24129288b8a91b3f8a4f",
+    "sha256_after": "2529344ec5e614a7b1925d495d6c0635df45e3a432ed24129288b8a91b3f8a4f"
+  },
+  {
+    "from": "assets/cards/u12.svg",
+    "to": "fresh/assets/cards/u12.svg",
+    "archived": true,
+    "kind": "file",
+    "sha256_before": "b032699b25067cdcee20ec00a5f3f32cb6b1ab5121c862d933ab1ade3214ae0f",
+    "sha256_after": "b032699b25067cdcee20ec00a5f3f32cb6b1ab5121c862d933ab1ade3214ae0f"
+  },
+  {
+    "from": "assets/cards/u13.svg",
+    "to": "fresh/assets/cards/u13.svg",
+    "archived": true,
+    "kind": "file",
+    "sha256_before": "20eb4fcb89001de42e764263bdcd9a18b1c734fdc56cc0fecc1b5ec000336d7f",
+    "sha256_after": "20eb4fcb89001de42e764263bdcd9a18b1c734fdc56cc0fecc1b5ec000336d7f"
+  },
+  {
+    "from": "assets/cards/u14.svg",
+    "to": "fresh/assets/cards/u14.svg",
+    "archived": true,
+    "kind": "file",
+    "sha256_before": "203afa17ca1c19a34e5f0dd4184ac519f3dfca19e80edc724b3fd1454c6d53dd",
+    "sha256_after": "203afa17ca1c19a34e5f0dd4184ac519f3dfca19e80edc724b3fd1454c6d53dd"
+  },
+  {
+    "from": "assets/cards/u15.svg",
+    "to": "fresh/assets/cards/u15.svg",
+    "archived": true,
+    "kind": "file",
+    "sha256_before": "96f1a0c101f5411c921978624b970ad21ce8ddfe883f3c5d566be9acdba7f967",
+    "sha256_after": "96f1a0c101f5411c921978624b970ad21ce8ddfe883f3c5d566be9acdba7f967"
+  },
+  {
+    "from": "assets/cards/u16.svg",
+    "to": "fresh/assets/cards/u16.svg",
+    "archived": true,
+    "kind": "file",
+    "sha256_before": "b9df5713e92b5cec4a2ce208bd2baebfea60643651b1b446029525582331a5b0",
+    "sha256_after": "b9df5713e92b5cec4a2ce208bd2baebfea60643651b1b446029525582331a5b0"
+  },
+  {
+    "from": "assets/cards/u17.svg",
+    "to": "fresh/assets/cards/u17.svg",
+    "archived": true,
+    "kind": "file",
+    "sha256_before": "bdcae26a5c621e38f34c934f60cbd1a9fb9b90d75ee164b2f94fcfb74bd2a170",
+    "sha256_after": "bdcae26a5c621e38f34c934f60cbd1a9fb9b90d75ee164b2f94fcfb74bd2a170"
+  },
+  {
+    "from": "assets/cards/u18.svg",
+    "to": "fresh/assets/cards/u18.svg",
+    "archived": true,
+    "kind": "file",
+    "sha256_before": "d74b0bbf4746e9ad00bc2e1a89529514ae04d156212f3b4f237b93807f5cf06d",
+    "sha256_after": "d74b0bbf4746e9ad00bc2e1a89529514ae04d156212f3b4f237b93807f5cf06d"
+  },
+  {
+    "from": "assets/cards/u19.svg",
+    "to": "fresh/assets/cards/u19.svg",
+    "archived": true,
+    "kind": "file",
+    "sha256_before": "96ed7c733f5c645e5fd83965a6a17cac6f858a48474a58901066dfdec1e5718d",
+    "sha256_after": "96ed7c733f5c645e5fd83965a6a17cac6f858a48474a58901066dfdec1e5718d"
+  },
+  {
+    "from": "assets/cards/u20.svg",
+    "to": "fresh/assets/cards/u20.svg",
+    "archived": true,
+    "kind": "file",
+    "sha256_before": "a0c4fa40335fc1f9f721ba8c684921a9187dc28b1a923c722e5e207e90e8065b",
+    "sha256_after": "a0c4fa40335fc1f9f721ba8c684921a9187dc28b1a923c722e5e207e90e8065b"
+  },
+  {
+    "from": "assets/cards/u21.svg",
+    "to": "fresh/assets/cards/u21.svg",
+    "archived": true,
+    "kind": "file",
+    "sha256_before": "f624eedd23b483159b2b48aca4089da2222d4ebc5821b9f3f06d12f9322a65cb",
+    "sha256_after": "f624eedd23b483159b2b48aca4089da2222d4ebc5821b9f3f06d12f9322a65cb"
+  },
+  {
+    "from": "assets/cards/u22.svg",
+    "to": "fresh/assets/cards/u22.svg",
+    "archived": true,
+    "kind": "file",
+    "sha256_before": "dc1e7d0db9b087146a6fd31bb8f5648aeff776c663e690dd30a50add5fe0992a",
+    "sha256_after": "dc1e7d0db9b087146a6fd31bb8f5648aeff776c663e690dd30a50add5fe0992a"
+  },
+  {
+    "from": "assets/cards/u23.svg",
+    "to": "fresh/assets/cards/u23.svg",
+    "archived": true,
+    "kind": "file",
+    "sha256_before": "ae141cdefd190bbb1289bcc188eb0dc84343ac073b3aa91ba176ab0081d1ecd2",
+    "sha256_after": "ae141cdefd190bbb1289bcc188eb0dc84343ac073b3aa91ba176ab0081d1ecd2"
+  },
+  {
+    "from": "assets/cards/u24.svg",
+    "to": "fresh/assets/cards/u24.svg",
+    "archived": true,
+    "kind": "file",
+    "sha256_before": "1b31c9848259e2d6ce17b6f204e63351148ffe5c4cf1638657bd856e1f61dee1",
+    "sha256_after": "1b31c9848259e2d6ce17b6f204e63351148ffe5c4cf1638657bd856e1f61dee1"
+  },
+  {
+    "from": "assets/cards/u25.svg",
+    "to": "fresh/assets/cards/u25.svg",
+    "archived": true,
+    "kind": "file",
+    "sha256_before": "6528a2edf9b5f3c933677e718c26edb9d76e8e4d28c84f6cbe825c269170e1ea",
+    "sha256_after": "6528a2edf9b5f3c933677e718c26edb9d76e8e4d28c84f6cbe825c269170e1ea"
+  },
+  {
+    "from": "assets/cards/u26.svg",
+    "to": "fresh/assets/cards/u26.svg",
+    "archived": true,
+    "kind": "file",
+    "sha256_before": "8af1b8f9e7564da4592df735444ceea7de98dabdacbce97d16229076e9d2ca5f",
+    "sha256_after": "8af1b8f9e7564da4592df735444ceea7de98dabdacbce97d16229076e9d2ca5f"
+  },
+  {
+    "from": "assets/cards/u27.svg",
+    "to": "fresh/assets/cards/u27.svg",
+    "archived": true,
+    "kind": "file",
+    "sha256_before": "6ed391cdc50849702274f64d86043ff1fc5ca3502de830c719ba7cc1b512e440",
+    "sha256_after": "6ed391cdc50849702274f64d86043ff1fc5ca3502de830c719ba7cc1b512e440"
+  },
+  {
+    "from": "assets/cards/u28.svg",
+    "to": "fresh/assets/cards/u28.svg",
+    "archived": true,
+    "kind": "file",
+    "sha256_before": "b272cf6cb3d21486f5b8a849d763ac945c02fa8d7f575cad4e537f2ef00e2b70",
+    "sha256_after": "b272cf6cb3d21486f5b8a849d763ac945c02fa8d7f575cad4e537f2ef00e2b70"
+  },
+  {
+    "from": "assets/cards/u29.svg",
+    "to": "fresh/assets/cards/u29.svg",
+    "archived": true,
+    "kind": "file",
+    "sha256_before": "a098d6f8a853c005b4b6a94e3fac12f806604da25a1c0f9aa2edebbb2914860e",
+    "sha256_after": "a098d6f8a853c005b4b6a94e3fac12f806604da25a1c0f9aa2edebbb2914860e"
+  },
+  {
+    "from": "assets/cards/u30.svg",
+    "to": "fresh/assets/cards/u30.svg",
+    "archived": true,
+    "kind": "file",
+    "sha256_before": "8128582282b3ab4b366d7320f1985a3ef39eab0766f3cf71296e622db2976765",
+    "sha256_after": "8128582282b3ab4b366d7320f1985a3ef39eab0766f3cf71296e622db2976765"
+  }
+]
